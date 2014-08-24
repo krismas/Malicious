@@ -5,7 +5,7 @@
 class updatedCheck extends maliciousCheck {
     function check($sPath, $aContent = null) {
         $this->iCount++;
-        if (filemtime($sPath) > filemtime(__FILE__)) $this->lFiles[$sPath] = true;
+        if (filemtime($sPath) > filemtime(__FILE__)) $this->lFiles[$sPath] = 1;
         return false;
     }
     function __destruct() {
