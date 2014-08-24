@@ -17,7 +17,7 @@ define('MCS_SECRET', '0617c3052b0360c3aa184986aede9053');
  * Some basics "Check configurations"
  */
 define('MCS_PLUGINS'  , 'readable');
-define('MCS_PLUGINS_1', 'readable,updated');
+define('MCS_PLUGINS_1', 'readable,empty,updated,writable');
 
 /*
  * Some basics "Report configurations"
