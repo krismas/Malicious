@@ -174,7 +174,14 @@ function _log($sMsg = '', $sName = 'malicious') {
 
     if ($fd[$sPath]) fwrite($fd[$sPath], sprintf("%04d|%s|%s\n", $inc++, date('d/m/y|H:i:s'), ($sMsg ? $sMsg : '!!!')));
 }
-
+function bytes($sSize) {
+    switch (substr($sSize, -1)) {
+        case 'M': case 'm': return (int)$sSize * 1048576;
+        case 'K': case 'k': return (int)$sSize * 1024;
+        case 'G': case 'g': return (int)$sSize * 1073741824;
+        default: return $sSize;
+    }
+}
 /**
  * Malicious "Check plugin" model
  */
