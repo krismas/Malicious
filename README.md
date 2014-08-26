@@ -33,19 +33,25 @@ define('MCS_REPORTS'  , 'echo');
 
 Name     | Description
 -------- | -----------------------------------
-empty    | Track empty files
 readable | Check if files are readable
 writable | Check if files are writable
 updated  | Check if files has been updated since last check
-big      | Track big files and files larger "than post_max_size"
 eval     | Track PHP files with suspect "eval()"
+empty    | Track empty files
+big      | Track big files and files larger "than post_max_size"
+image    | In progress
+syntax   | In progress
+metrics  | In progress
 
 ### Report Plugins
 
-Name     | Description
--------- | -----------------------------------
-echo     | Display result to browser / screen
-log      | Log result in malicious.log
+Name        | Description
+----------- | -----------------------------------
+echo        | Display result to browser / screen
+log         | Log result in malicious.log
+Mail        | In progress
+Analytics   | In progress
+In Progress | In progress
 
 Resources
 ---
@@ -55,6 +61,10 @@ Resources
 - [Malicious Code Scanner](https://github.com/mikestowe/Malicious-Code-Scanner)
 - [Obfuscalp](https://github.com/Orbixx/Obfuscalp)
 - [Tripwire](https://github.com/lucanos/Tripwire)
+
+### Security informations
+
+- [Code injection – a simple PHP virus carried in a JPEG image](http://php.webtutor.pl/en/2011/05/13/php-code-injection-a-simple-virus-written-in-php-and-carried-in-a-jpeg-image)
 
 TODO
 ---
