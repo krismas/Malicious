@@ -1,7 +1,7 @@
 Malicious
 =========
 
-A simple, lightweight code to detect potential suspicious/malicious PHP Code and few other commons sources of problems. Fully extensible with plugins (Check & Report) support...
+A simple, lightweight framework to detect potential suspicious/malicious PHP Code and few other commons sources of problems. Fully extensible with plugins (Check & Report) support...
 
 Usage
 ---
@@ -32,9 +32,6 @@ define('MCS_REPORTS'  , 'echo');
 Name     | Description
 -------- | -----------------------------------
 empty    | Check for empty files
-
-Resources
----
 readable | Check if files are readable
 writable | Check if files are writable
 updated  | Check if files has been updated since last check
@@ -46,6 +43,9 @@ Name     | Description
 -------- | -----------------------------------
 echo     | Display result to browser / screen
 log      | Log result in malicious.log
+
+Resources
+---
 
 TODO
 ---
