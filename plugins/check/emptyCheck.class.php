@@ -1,6 +1,8 @@
 <?php
 /**
  * A "plugin" to check if file is empty
+ *
+ * @copyright Ackwa.fr - 2014
  */
 class emptyCheck extends maliciousCheck {
     function check($sPath, $aContent = null) {

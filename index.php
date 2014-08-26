@@ -1,5 +1,12 @@
 <?php
-/*
+/**
+ * Malicious
+ *
+ * A simple, lightweight framework to detect potential suspicious/malicious PHP Code and few other
+ * commons sources of problems. Fully extensible with plugins (Check & Report) support...
+ *
+ * @copyright Ackwa.fr - 2014
+ *
  * Load configuration file
  */
 require(dirname(__FILE__).'/config.php');

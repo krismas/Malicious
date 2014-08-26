@@ -1,6 +1,8 @@
 <?php
 /**
  * A "plugin" to check if file has been updated since last check
+ *
+ * @copyright Ackwa.fr - 2014
  */
 class updatedCheck extends maliciousCheck {
     function check($sPath, $aContent = null) {

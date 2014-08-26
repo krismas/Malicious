@@ -1,6 +1,8 @@
 <?php
 /**
  * Echo check results to screen
+ *
+ * @copyright Ackwa.fr - 2014
  */
 class echoReport extends maliciousReport {
     function report($lChecks) {

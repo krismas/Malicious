@@ -3,6 +3,8 @@ Malicious
 
 A simple, lightweight framework to detect potential suspicious/malicious PHP Code and few other commons sources of problems. Fully extensible with plugins (Check & Report) support...
 
+@copyright [Ackwa.fr](http://www.ackwa.fr) - 2014
+
 Usage
 ---
 ### via HTTP
@@ -50,8 +52,9 @@ Resources
 
 ### inspiration
 
-- [Tripwire](https://github.com/lucanos/Tripwire)
 - [Malicious Code Scanner](https://github.com/mikestowe/Malicious-Code-Scanner)
+- [Obfuscalp](https://github.com/Orbixx/Obfuscalp)
+- [Tripwire](https://github.com/lucanos/Tripwire)
 
 TODO
 ---

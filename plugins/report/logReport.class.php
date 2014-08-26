@@ -1,6 +1,8 @@
 <?php
 /**
  * Log check results to file
+ *
+ * @copyright Ackwa.fr - 2014
  */
 class logReport extends maliciousReport {
     function report($lChecks) {

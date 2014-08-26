@@ -1,6 +1,8 @@
 <?php
 /**
  * A "plugin" to check for big files and files larger "than post_max_size"
+ *
+ * @copyright Ackwa.fr - 2014
  */
 class bigCheck extends maliciousCheck {
     function check($sPath, $aContent = null) {

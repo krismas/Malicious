@@ -1,6 +1,9 @@
 <?php
 /**
  * A "plugin" to track PHP files with suspect "eval()"
+ *
+ * @copyright Ackwa.fr - 2014
+ * @see       https://github.com/mikestowe/Malicious-Code-Scanner
  */
 class evalCheck extends maliciousCheck {
     function filter($sPath) {

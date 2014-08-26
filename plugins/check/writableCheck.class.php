@@ -1,6 +1,8 @@
 <?php
 /**
  * A "plugin" to check if file is writable
+ *
+ * @copyright Ackwa.fr - 2014
  */
 class writableCheck extends maliciousCheck {
     function check($sPath, $aContent = null) {
