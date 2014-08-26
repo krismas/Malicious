@@ -31,11 +31,12 @@ define('MCS_REPORTS'  , 'echo');
 
 Name     | Description
 -------- | -----------------------------------
-empty    | Check for empty files
+empty    | Track empty files
 readable | Check if files are readable
 writable | Check if files are writable
 updated  | Check if files has been updated since last check
-updated  | Check for big files and files larger "than post_max_size"
+big      | Track big files and files larger "than post_max_size"
+eval     | Track PHP files with suspect "eval()"
 
 ### Report Plugins
 
@@ -46,6 +47,11 @@ log      | Log result in malicious.log
 
 Resources
 ---
+
+### inspiration
+
+- [Tripwire](https://github.com/lucanos/Tripwire)
+- [Malicious Code Scanner](https://github.com/mikestowe/Malicious-Code-Scanner)
 
 TODO
 ---
