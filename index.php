@@ -206,7 +206,7 @@ class maliciousCheck {
     function filter($sPath) {
         return true;
     }
-    function warm() {
+    function warn() {
         return true;
     }
     function needFileContent() {
