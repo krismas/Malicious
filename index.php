@@ -103,19 +103,26 @@ define('MCS_STOP', _now());
  * @param array  $aPlugins  Plugins to execute
  */
 function scan($sDir, $aPlugins = array()) {
-    $lFiles = scandir(realpath($sDir));
-    foreach($lFiles as $sFile) {
-        if (('.' != $sFile) && ('..' != $sFile)) {
-            $sPath = realpath($sDir.'/'.$sFile);
-            if (is_dir($sPath)) {
-                scan($sPath, $aPlugins);
-            }
-            else {
-                $sContent = null;
-                foreach($aPlugins as $oPlugin) {
-                    if ($oPlugin->filter($sPath)) {
-                        if ($oPlugin->needFileContent() && !$sContent) $sContent = file_get_contents($sPath);
-                        if ($oPlugin->check($sPath, $sContent)) break;
+    if (is_readable($sDir)) {
+        $lFiles = scandir(realpath($sDir));
+        foreach($lFiles as $sFile) {
+            if (('.' != $sFile) && ('..' != $sFile)) {
+                $sPath = realpath($sDir.'/'.$sFile);
+                if (is_dir($sPath)) {
+                    foreach($aPlugins as $oPlugin) {
+                        if ($oPlugin->checkDirectories()) {
+                            if ($oPlugin->check($sPath, null)) break;
+                        }
+                    }
+                    scan($sPath, $aPlugins);
+                }
+                else {
+                    $sContent = null;
+                    foreach($aPlugins as $oPlugin) {
+                        if ($oPlugin->filter($sPath)) {
+                            if ($oPlugin->needFileContent() && !$sContent) $sContent = file_get_contents($sPath);
+                            if ($oPlugin->check($sPath, $sContent)) break;
+                        }
                     }
                 }
             }
@@ -210,6 +217,9 @@ class maliciousCheck {
         return true;
     }
     function needFileContent() {
+        return false;
+    }
+    function checkDirectories() {
         return false;
     }
     protected function extension($sPath) {
