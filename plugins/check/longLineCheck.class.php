@@ -3,6 +3,9 @@
  * A "plugin" to track PHP files with very long lines
  */
 class longLineCheck extends maliciousCheck {
+    function description() {
+        return 'files with very long lines (> 10 000 characters)';
+    }
     function filter($sPath) {
         return (('php' == $this->extension($sPath)) ? true : false);
     }

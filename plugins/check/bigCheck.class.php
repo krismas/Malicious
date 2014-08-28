@@ -5,6 +5,9 @@
  * @copyright Ackwa.fr - 2014
  */
 class bigCheck extends maliciousCheck {
+    function description() {
+        return 'Big files and files larger "than post_max_size"';
+    }
     function check($sPath, $aContent = null) {
         $this->iCount++;
         if (filesize($sPath) > 1000000) $this->lFiles[$sPath] = 1;

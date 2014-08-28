@@ -5,6 +5,9 @@
  * @copyright Ackwa.fr - 2014
  */
 class hiddenCheck extends maliciousCheck {
+    function description() {
+        return 'Hidden files and directories (.xxx)';
+    }
     function check($sPath, $aContent = null) {
         $this->iCount++;
         if ('.' == substr(basename($sPath), 0, 1)) $this->lFiles[$sPath] = 1;

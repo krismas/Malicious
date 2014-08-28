@@ -5,6 +5,9 @@
  * @copyright Ackwa.fr - 2014
  */
 class readableCheck extends maliciousCheck {
+    function description() {
+        return 'Non readable files';
+    }
     function checkDirectories() {
         return true;
     }

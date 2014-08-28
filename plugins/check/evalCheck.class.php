@@ -6,6 +6,9 @@
  * @see       https://github.com/mikestowe/Malicious-Code-Scanner
  */
 class evalCheck extends maliciousCheck {
+    function description() {
+        return 'PHP files with suspect "eval()';
+    }
     function filter($sPath) {
         return (('php' == $this->extension($sPath)) ? true : false);
     }

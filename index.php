@@ -206,6 +206,9 @@ class maliciousCheck {
     function __construct() {
         //echo 'Load : '.get_class($this)."\n";
     }
+    function description() {
+        return 'Check "plugin" Model';
+    }
     function check($sPath, $sContent = null) {
         $this->iCount++;
         return false;
