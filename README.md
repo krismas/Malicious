@@ -37,6 +37,7 @@ readable  | Check if files are readable
 writable  | Check if files are writable
 updated   | Check if files has been updated since last check
 eval      | Track PHP files with suspect "eval()"
+longline  | Track PHP files with very long lines
 empty     | Track empty files
 big       | Track big files and files larger "than post_max_size"
 hidden    | Track hidden files and directories (.xxx)
@@ -45,6 +46,7 @@ syntax    | In progress
 metrics   | In progress
 change    | In progress
 footprint | In progress
+perm      | In progress
 
 ### Report Plugins
 
