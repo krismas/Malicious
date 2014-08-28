@@ -15,7 +15,7 @@ define('MCS_NOLIMIT', true);                       // Disable memory limit & tim
 /*
  * Authorizations
  */
-define('MCS_SECRET', 'my_secret_string');
+define('MCS_SECRET', 'mysecretkey');
 
 /*
  * Some basics "Check configurations"

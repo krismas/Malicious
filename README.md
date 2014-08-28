@@ -31,18 +31,20 @@ define('MCS_REPORTS'  , 'echo');
 
 ### Check Plugins
 
-Name     | Description
--------- | -----------------------------------
-readable | Check if files are readable
-writable | Check if files are writable
-updated  | Check if files has been updated since last check
-eval     | Track PHP files with suspect "eval()"
-empty    | Track empty files
-big      | Track big files and files larger "than post_max_size"
-hidden   | Track hidden files and directories (.xxx)
-image    | In progress
-syntax   | In progress
-metrics  | In progress
+Name      | Description
+--------- | -----------------------------------
+readable  | Check if files are readable
+writable  | Check if files are writable
+updated   | Check if files has been updated since last check
+eval      | Track PHP files with suspect "eval()"
+empty     | Track empty files
+big       | Track big files and files larger "than post_max_size"
+hidden    | Track hidden files and directories (.xxx)
+image     | In progress
+syntax    | In progress
+metrics   | In progress
+change    | In progress
+footprint | In progress
 
 ### Report Plugins
 
@@ -50,6 +52,7 @@ Name        | Description
 ----------- | -----------------------------------
 echo        | Display result to browser / screen
 log         | Log result in malicious.log
+html        | In progress
 Mail        | In progress
 Analytics   | In progress
 In Progress | In progress
