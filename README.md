@@ -39,6 +39,7 @@ updated  | Check if files has been updated since last check
 eval     | Track PHP files with suspect "eval()"
 empty    | Track empty files
 big      | Track big files and files larger "than post_max_size"
+hidden   | Track hidden files and directories (.xxx)
 image    | In progress
 syntax   | In progress
 metrics  | In progress
