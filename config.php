@@ -15,16 +15,16 @@ define('MCS_NOLIMIT', true);                       // Disable memory limit & tim
 /*
  * Authorizations
  */
-define('MCS_SECRET', '0617c3052b0360c3aa184986aede9053');
+define('MCS_SECRET', 'my_secret_string');
 
 /*
  * Some basics "Check configurations"
  */
 define('MCS_PLUGINS'  , 'readable,eval');
-define('MCS_PLUGINS_1', 'readable,eval,empty,updated,writable,big');
+define('MCS_PLUGINS_1', 'readable,eval,empty,updated,writable,big,hidden');
 
 /*
  * Some basics "Report configurations"
  */
-define('MCS_REPORTS'  , 'echo');
+define('MCS_REPORTS'  , 'echo,log');
 define('MCS_REPORTS_1', 'echo,log');
