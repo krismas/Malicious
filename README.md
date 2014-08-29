@@ -29,6 +29,19 @@ define('MCS_PLUGINS'  , 'readable,big');
 define('MCS_REPORTS'  , 'echo');
 ```
 
+You can declare more than one configuration :
+
+```
+define('MCS_PLUGINS_1'  , 'readable,exec,eval');
+define('MCS_REPORTS_1'  , 'echo,log');
+```
+
+And use this new configuration with `c` and `r` parameters :
+
+```
+http://mydomain.com/Malicious/index.php?s=mysecretkey&c=1&r=1
+```
+
 ### Check Plugins
 
 Name        | Description
