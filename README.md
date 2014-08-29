@@ -64,6 +64,8 @@ perm        | In progress
 token       | In progress
 ini         | In progress
 htaccess    | In progress
+mime        | In progress
+
 
 ### Report Plugins
 
