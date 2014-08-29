@@ -8,7 +8,8 @@
  *
  * @info Path are relative to Malicious core
  */
-define('MCS_ROOT'   , dirname(__FILE__).'/..');    // Directory to scan
+//define('MCS_ROOT'   , dirname(__FILE__).'/..');    // Directory to scan
+define('MCS_ROOT'   , dirname(__FILE__).'/../_Malicious/sandbox');     // Directory to scan
 define('MCS_LOGS'   , dirname(__FILE__).'/logs');  // Where to save logs
 define('MCS_NOLIMIT', true);                       // Disable memory limit & timeout
 
