@@ -13,14 +13,15 @@ class execCheck extends evalCheck {
         $this->lRegex = array(
             'mail\s*\('                 =>  1,
             'exec\s*\('                 => 10,
-            'pcntl_exec\s*\('           => 11,
-            'system\s*\('               => 12,
-            'popen\s*\('                => 13,
-            'proc_pen\s*\('             => 14,
-            'passthru\s*\('             => 15,
-            'fsockopen\s*\('            => 16,
-            'pfsockopen\s*\('           => 17,
-            'stream_socket_client\s*\(' => 18
+            '`[\S\s]*`'                 => 11,
+            'pcntl_exec\s*\('           => 12,
+            'system\s*\('               => 13,
+            'popen\s*\('                => 14,
+            'proc_pen\s*\('             => 15,
+            'passthru\s*\('             => 16,
+            'fsockopen\s*\('            => 17,
+            'pfsockopen\s*\('           => 18,
+            'stream_socket_client\s*\(' => 19
         );
     }
 }
