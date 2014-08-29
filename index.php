@@ -31,8 +31,8 @@ $sSecret  = (isset($aOptions['s']) ? $aOptions['s'] : '');
 /*
  * Log some informations
  */
-$aPUID = posix_getpwuid(posix_geteuid());
-$aPGID = posix_getgrgid(posix_getegid());
+$aPUID = array('uid' => getmyuid(), 'name' => get_current_user());
+$aPGID = array('gid' => getmygid(), 'name' => '???');
 _log(str_repeat('-', 80));
 _log('Malicious '.MCS_VERSION.' started... PHP '.phpversion().' / '.php_sapi_name().' on '.(isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost').' for '.(isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '???'));
 _log('Process is owned by '.$aPUID['name'].' ('.$aPUID['uid'].') / '.$aPGID['name'].' ('.$aPGID['gid'].') with umask '.sprintf('%04o', umask()).' running in '.realpath(getcwd()));
