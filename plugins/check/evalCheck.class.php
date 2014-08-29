@@ -17,10 +17,11 @@ class evalCheck extends maliciousCheck {
     }
     function __construct() {
         $this->lRegex = array(
-            'str_rot13'                         =>  1,
-            'eval\s*\(\s*$_'                    => 11,
-            'eval\s*\(\s*base64'                => 12,
-            'eval\s*\(gzinflate\s*\(\s*base64'  => 20
+            'str_rot13'                           =>  1,
+            'eval\s*\(\s*$_'                      => 11,
+            'eval\s*\(\s*base64'                  => 12,
+            'eval\s*\(gzinflate\s*\(\s*base64'    => 20,
+            'preg_replace\s*\(\s*(\'|").*e(\'|")' => 21
         );
     }
     function check($sPath, $sContent = null) {
