@@ -31,22 +31,27 @@ define('MCS_REPORTS'  , 'echo');
 
 ### Check Plugins
 
-Name      | Description
---------- | -----------------------------------
-readable  | Check if files are readable
-writable  | Check if files are writable
-updated   | Check if files has been updated since last check
-eval      | Track PHP files with suspect "eval()"
-longline  | Track PHP files with very long lines
-empty     | Track empty files
-big       | Track big files and files larger "than post_max_size"
-hidden    | Track hidden files and directories (.xxx)
-image     | In progress
-syntax    | In progress
-metrics   | In progress
-change    | In progress
-footprint | In progress
-perm      | In progress
+Name        | Description
+----------- | -----------------------------------
+readable    | Check if files are readable
+writable    | Check if files are writable
+updated     | Check if files has been updated since last check
+eval        | Track PHP files with suspect "eval()"
+exec        | Track PHP files with exec(), system()...
+longline    | Track PHP files with very long lines
+empty       | Track empty files
+big         | Track big files and files larger "than post_max_size"
+hidden      | Track hidden files and directories (.xxx)
+image       | In progress
+syntax      | In progress
+metrics     | In progress
+change      | In progress
+footprint   | In progress
+perm        | In progress
+token       | In progress
+ini         | In progress
+htaccess    | In progress
+
 
 ### Report Plugins
 
@@ -55,6 +60,7 @@ Name        | Description
 echo        | Display result to browser / screen
 log         | Log result in malicious.log
 html        | In progress
+pdf         | In progress
 Mail        | In progress
 Analytics   | In progress
 In Progress | In progress
@@ -70,6 +76,8 @@ Resources
 
 ### Security informations
 
+- [How to Tell if Your PHP Site has been Hacked or Compromised](http://www.gregfreeman.org/2013/how-to-tell-if-your-php-site-has-been-compromised)
+- [Exploitable PHP functions](http://stackoverflow.com/questions/3115559/exploitable-php-functions)
 - [Code injection – a simple PHP virus carried in a JPEG image](http://php.webtutor.pl/en/2011/05/13/php-code-injection-a-simple-virus-written-in-php-and-carried-in-a-jpeg-image)
 
 TODO
