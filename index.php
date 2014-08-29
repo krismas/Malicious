@@ -201,6 +201,7 @@ function bytes($sSize) {
  */
 class maliciousCheck {
     public $iCount = 0;         // Number of files checked
+    public $iSize  = 0;         // Bytes read
     public $lFiles = array();   // List of selected files
 
     function __construct() {
