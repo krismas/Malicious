@@ -17,12 +17,16 @@ class evalCheck extends maliciousCheck {
     }
     function __construct() {
         $this->lRegex = array(
-            'str_rot13\s*\('                      =>  1,
+            'x29'                                 =>  1,
+            'x3b'                                 =>  2,
+            'str_rot13\s*\('                      =>  3,
+            'register_shutdown_function\s*\('     =>  4,
             'eval\s*\(\s*$_'                      => 11,
             'eval\s*\(\s*base64'                  => 12,
             'create_function\s*\('                => 13,
             'eval\s*\(gzinflate\s*\(\s*base64'    => 20,
             'preg_replace\s*\(\s*(\'|").*e(\'|")' => 21
+
         );
     }
     function check($sPath, $sContent = null) {
@@ -31,8 +35,7 @@ class evalCheck extends maliciousCheck {
         if ($sContent) {
             foreach($this->lRegex as $sRegex => $iGravity) {
                 if (preg_match('/'.$sRegex.'/i', $sContent)) {
-                    $this->lFiles[$sPath] = $iGravity;
-                    break;
+                    $this->lFiles[$sPath] = (isset($this->lFiles[$sPath]) ? $this->lFiles[$sPath] : 0) + $iGravity;
                 }
             }
         }
