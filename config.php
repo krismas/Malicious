@@ -8,7 +8,8 @@
  *
  * @info Path are relative to Malicious core
  */
-define('MCS_ROOT'   , dirname(__FILE__).'/..');    // Directory to scan
+//define('MCS_ROOT'   , dirname(__FILE__).'/..');    // Directory to scan
+define('MCS_ROOT'   , dirname(__FILE__).'/../_Malicious/sandbox');     // Directory to scan
 define('MCS_LOGS'   , dirname(__FILE__).'/logs');  // Where to save logs
 define('MCS_NOLIMIT', true);                       // Disable memory limit & timeout
 
@@ -20,7 +21,7 @@ define('MCS_SECRET', 'mysecretkey');
 /*
  * Some basics "Check configurations"
  */
-define('MCS_PLUGINS'  , 'readable,eval');
+define('MCS_PLUGINS'  , 'readable,eval,exec');
 define('MCS_PLUGINS_1', 'readable,eval,empty,updated,writable,big,hidden');
 
 /*
