@@ -17,16 +17,19 @@ class evalCheck extends maliciousCheck {
     }
     function __construct() {
         $this->lRegex = array(
-            'eval\s*\(\s*$_',
-            'eval\s*\(\s*base64',
-            'eval\s*\(gzinflate\s*\(base64');
+            'str_rot13'                         =>  1,
+            'eval\s*\(\s*$_'                    => 11,
+            'eval\s*\(\s*base64'                => 12,
+            'eval\s*\(gzinflate\s*\(\s*base64'  => 20
+        );
     }
     function check($sPath, $sContent = null) {
         $this->iCount++;
+        $this->iSize+= strlen($sContent);
         if ($sContent) {
-            foreach($this->lRegex as $sRegex) {
+            foreach($this->lRegex as $sRegex => $iGravity) {
                 if (preg_match('/'.$sRegex.'/i', $sContent)) {
-                    $this->lFiles[$sPath] = 10;
+                    $this->lFiles[$sPath] = $iGravity;
                     break;
                 }
             }
