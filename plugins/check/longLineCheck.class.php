@@ -14,6 +14,7 @@ class longLineCheck extends maliciousCheck {
     }
     function check($sPath, $sContent = null) {
         $this->iCount++;
+        $this->iSize+= strlen($sContent);
         if ($sContent) {
             $aContent = explode("\n", $sContent);
             foreach($aContent as $sLine) {
