@@ -39,9 +39,9 @@ updated     | Check if files has been updated since last check
 eval        | Track PHP files with suspect "eval()"
 exec        | Track PHP files with exec(), system()...
 longline    | Track PHP files with very long lines
-empty       | Track empty files
 big         | Track big files and files larger "than post_max_size"
 hidden      | Track hidden files and directories (.xxx)
+empty       | Track empty files
 image       | In progress
 syntax      | In progress
 metrics     | In progress
@@ -52,7 +52,6 @@ token       | In progress
 ini         | In progress
 htaccess    | In progress
 
-
 ### Report Plugins
 
 Name        | Description
@@ -61,9 +60,9 @@ echo        | Display result to browser / screen
 log         | Log result in malicious.log
 html        | In progress
 pdf         | In progress
+sms         | In progress
 Mail        | In progress
 Analytics   | In progress
-In Progress | In progress
 
 Resources
 ---
