@@ -18,13 +18,20 @@ define('MCS_NOLIMIT', true);                       // Disable memory limit & tim
 define('MCS_SECRET', 'mysecretkey');
 
 /*
+ * Notification
+ */
+define('MCS_EMAIL', 'info@ackwa.fr');
+define('MCS_SITE' , 'Ackwa');
+
+/*
  * Some basics "Check configurations"
  */
 define('MCS_PLUGINS'  , 'readable,eval,exec');
-define('MCS_PLUGINS_1', 'readable,eval,empty,updated,writable,big,hidden');
+define('MCS_PLUGINS_1', 'updated');
+define('MCS_PLUGINS_2', 'readable,eval,exec,empty,updated,writable,big,hidden');
 
 /*
  * Some basics "Report configurations"
  */
 define('MCS_REPORTS'  , 'echo,log');
-define('MCS_REPORTS_1', 'echo,log');
+define('MCS_REPORTS_1', 'mail,log');
