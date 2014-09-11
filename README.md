@@ -49,6 +49,7 @@ Name        | Description
 readable    | Check if files are readable
 writable    | Check if files are writable
 updated     | Check if files has been updated since last check
+shelldb     | Track PHP files in regards of [PHP Shell Detector database](https://github.com/mikestowe/Malicious-Code-Scanner)
 eval        | Track PHP files with suspect "eval()"
 exec        | Track PHP files with exec(), system()...
 longline    | Track PHP files with very long lines
@@ -71,12 +72,12 @@ mime        | In progress
 
 Name        | Description
 ----------- | -----------------------------------
-echo        | Display result to browser / screen
-log         | Log result in malicious.log
+echo        | Display results to browser / screen
+log         | Log results in malicious.log
+Mail        | Send results via e-mail
 html        | In progress
 pdf         | In progress
 sms         | In progress
-Mail        | In progress
 Analytics   | In progress
 
 Resources
@@ -85,6 +86,7 @@ Resources
 ### inspiration
 
 - [Malicious Code Scanner](https://github.com/mikestowe/Malicious-Code-Scanner)
+- [PHP Shell Detector](https://github.com/emposha/PHP-Shell-Detector)
 - [Obfuscalp](https://github.com/Orbixx/Obfuscalp)
 - [Tripwire](https://github.com/lucanos/Tripwire)
 
