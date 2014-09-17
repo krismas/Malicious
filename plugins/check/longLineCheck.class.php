@@ -1,6 +1,8 @@
 <?php
 /**
  * A "plugin" to track PHP files with very long lines
+ *
+ * @copyright Ackwa.fr - 2014
  */
 class longLineCheck extends maliciousCheck {
     function description() {
