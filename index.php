@@ -16,6 +16,9 @@ require(dirname(__FILE__).'/config.php');
  * Some local definition
  */
 define('MCS_VERSION', '0.1-beta');
+/**
+ *
+ */
 define('MCS_START'  , _now());
 register_shutdown_function('_stop');
 spl_autoload_register('autoloadPlugins');
@@ -213,10 +216,20 @@ function _log($sMsg = '', $sName = 'malicious') {
 
     $sName      = (trim($sName) ? $sName : md5(date('Ymd')));
     $sPath      = MCS_LOGS.'/'.$sName.'.log';
+
+    if (!file_exists(MCS_LOGS)) {
+        mkdir(MCS_LOGS);
+    };
+
     $fd[$sPath] = (isset($fd[$sPath]) ? $fd[$sPath] : fopen($sPath, 'a'));
 
     if ($fd[$sPath]) fwrite($fd[$sPath], sprintf("%04d|%s|%s\n", $inc++, date('d/m/y|H:i:s'), ($sMsg ? $sMsg : '!!!')));
 }
+
+/**
+ * @param  integer $sSize   Size of file
+ * @return int
+ */
 function bytes($sSize) {
     switch (substr($sSize, -1)) {
         case 'M': case 'm': return (int)$sSize * 1048576;

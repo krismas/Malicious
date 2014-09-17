@@ -101,7 +101,6 @@ TODO
 ---
 - More plugins
 - Documentation
--test
 
 Disclaimer
 ---
