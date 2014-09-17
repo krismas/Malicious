@@ -56,6 +56,7 @@ longline    | Track PHP files with very long lines
 big         | Track big files and files larger "than post_max_size"
 hidden      | Track hidden files and directories (.xxx)
 empty       | Track empty files
+cms         | In progress
 image       | In progress
 syntax      | In progress
 metrics     | In progress
@@ -100,3 +101,7 @@ TODO
 ---
 - More plugins
 - Documentation
+
+Disclaimer
+---
+This software is provided "as is" without warranty of any kind, either express or implied, including but not limited to the implied warranties of merchantability and fitness for a particular purpose. In no event shall the author be liable for any damages whatsoever including direct, indirect, incidental, consequential, loss of business profits or special damages, even if the author has been advised of the possibility of such damages.
