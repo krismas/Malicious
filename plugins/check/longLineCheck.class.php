@@ -19,7 +19,7 @@ class longLineCheck extends maliciousCheck {
             $aContent = explode("\n", $sContent);
             foreach($aContent as $sLine) {
                 if (strlen($sLine) > 10000) {
-                    $this->lFiles[$sPath] = 10;
+                    $this->lFiles[$sPath] = strlen($sLine);
                     break;
                 }
             }

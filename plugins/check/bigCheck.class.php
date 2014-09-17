@@ -6,12 +6,12 @@
  */
 class bigCheck extends maliciousCheck {
     function description() {
-        return 'Big files and files larger "than post_max_size"';
+        return 'Big files (>'.MCS_MAXFS.') or files larger than "post_max_size" (>'.bytes(ini_get('post_max_size')).')';
     }
     function check($sPath, $aContent = null) {
         $this->iCount++;
-        if (filesize($sPath) > 1000000) $this->lFiles[$sPath] = 1;
-        if (filesize($sPath) > bytes(ini_get('post_max_size'))) $this->lFiles[$sPath] = 10;
-        return false;
+        $iFS = filesize($sPath);
+        if (($iFS > MCS_MAXFS) || ($iFS > bytes(ini_get('post_max_size')))) $this->lFiles[$sPath] = $iFS;
+        return ($this->lFiles[$sPath] ? true : false);
     }
 }
