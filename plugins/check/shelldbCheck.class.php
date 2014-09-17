@@ -1,6 +1,8 @@
 <?php
 /**
  * A "plugin" to track PHP files in regards of PHP Shell Detector database
+ *
+ * @copyright Ackwa.fr - 2014
  */
 class shelldbCheck extends maliciousCheck {
     private $lFingerprints = array();
