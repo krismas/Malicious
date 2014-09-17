@@ -10,8 +10,8 @@ class updatedCheck extends maliciousCheck {
     }
     function check($sPath, $aContent = null) {
         $this->iCount++;
-        if (filemtime($sPath) > filemtime(__FILE__)) $this->lFiles[$sPath] = 1;
-        return false;
+        if (filemtime($sPath) > filemtime(__FILE__)) $this->lFiles[$sPath] = date('Y/m/d H:i:s', filemtime($sPath));
+        return ($this->lFiles[$sPath] ? false : true); // If file "has not been updated" do not continue testing...
     }
     function __destruct() {
         touch(__FILE__);
