@@ -5,6 +5,7 @@
  * A simple, lightweight framework to detect potential suspicious/malicious PHP Code and few other
  * commons sources of problems. Fully extensible with plugins (Check & Report) support...
  *
+ * @version   0.1
  * @copyright Ackwa.fr - 2014
  *
  * Load configuration file
@@ -27,6 +28,7 @@ $aOptions = (is_array($aOptions) ? $aOptions : $_GET);
 $iCheck   = (isset($aOptions['c']) ? $aOptions['c'] :  0) + 0;
 $iReport  = (isset($aOptions['r']) ? $aOptions['r'] :  0) + 0;
 $sSecret  = (isset($aOptions['s']) ? $aOptions['s'] : '');
+$sRoot    = (isset($aOptions['d']) ? $aOptions['d'] : MCS_ROOT);
 
 /*
  * Log some informations
@@ -78,12 +80,14 @@ if (MCS_SECRET == $sSecret) {
      * Load "Check plugins"...
      */
     $lChecks = loadPlugins($sPlugins, 'Check');
+    $sLastP  = $sLastC = '';
+    $iCount  = $iCheck = 0;
 
     /*
      * Start scanner...
      */
-    _log('Scan '.realpath(MCS_ROOT).' directory with : '.implode(', ', array_keys($lChecks)).' plugins.');
-    scan(MCS_ROOT, $lChecks);
+    _log('Scan ['.realpath($sRoot).'] directory with : '.implode(', ', array_keys($lChecks)).' plugins.');
+    scan($sRoot, $lChecks);
 
     /*
      * Load and execute "Report plugins"...
@@ -103,25 +107,45 @@ define('MCS_STOP', _now());
  * @param array  $aPlugins  Plugins to execute
  */
 function scan($sDir, $aPlugins = array()) {
+    global $sLastP, $sLastC, $iCount, $iCheck;
     if (is_readable($sDir)) {
         $lFiles = scandir(realpath($sDir));
         foreach($lFiles as $sFile) {
             if (('.' != $sFile) && ('..' != $sFile)) {
-                $sPath = realpath($sDir.'/'.$sFile);
+                /*
+                 * Update counter & marker
+                 */
+                $sPath  = realpath($sDir.'/'.$sFile);
+                $sLastP = $sPath;
+                $iCount++;
+
+                /*
+                 * A tick...
+                 */
+                if ($iCheck && !($iCheck % 10000)) _tick();
+
+                /*
+                 * Check directory or file
+                 */
                 if (is_dir($sPath)) {
                     foreach($aPlugins as $oPlugin) {
+                        $sLastC = get_class($oPlugin);
                         if ($oPlugin->checkDirectories()) {
+                            $iCheck++;
                             if ($oPlugin->check($sPath, null)) break;
                         }
                     }
                     scan($sPath, $aPlugins);
                 }
                 else {
+//echo '<pre>['.$sPath."]\n";
                     $sContent = null;
                     foreach($aPlugins as $oPlugin) {
                         if ($oPlugin->filter($sPath)) {
+                            $sLastC = get_class($oPlugin);
                             if ($oPlugin->needFileContent() && !$sContent) $sContent = file_get_contents($sPath);
-                            if ($oPlugin->check($sPath, $sContent)) break;
+                            $iCheck++;
+                            if ($oPlugin->check($sPath, $sContent)) break; // If file "checked" do not continue testing...
                         }
                     }
                 }
@@ -159,7 +183,12 @@ function autoloadPlugins($sClass) {
  * Trace Malicious stop delay / status
  */
 function _stop() {
-    _log(sprintf('Malicious stop after %2.4fs. Completed status is %s', (_now() - MCS_START), (MCS_STOP ? 'OK.' : 'KO!')));
+    global $sLastP, $sLastC, $iCount, $iCheck;
+    _log(sprintf('Malicious stop after %2.4fs. Completed status is %s. Last file (#%d) checked (#%d) : [%s] by %s', (_now() - MCS_START), (MCS_STOP ? 'OK.' : 'KO!'), $iCount, $iCheck, $sLastP, $sLastC));
+}
+function _tick() {
+    global $sLastP, $sLastC, $iCount, $iCheck;
+    _log(sprintf('Malicious is running since %2.4fs. Last file (#%d) checked (#%d) : [%s] by %s', (_now() - MCS_START), $iCount, $iCheck, $sLastP, $sLastC));
 }
 
 /**
@@ -203,6 +232,7 @@ class maliciousCheck {
     public $iCount = 0;         // Number of files checked
     public $iSize  = 0;         // Bytes read
     public $lFiles = array();   // List of selected files
+    public $lMore  = array();   // More information about selected files
 
     function __construct() {
         //echo 'Load : '.get_class($this)."\n";
@@ -212,7 +242,7 @@ class maliciousCheck {
     }
     function check($sPath, $sContent = null) {
         $this->iCount++;
-        return false;
+        return false; // By default we'll continue testing...
     }
     function filter($sPath) {
         return true;
