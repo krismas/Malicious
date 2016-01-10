@@ -96,6 +96,7 @@ Resources
 - [How to Tell if Your PHP Site has been Hacked or Compromised](http://www.gregfreeman.org/2013/how-to-tell-if-your-php-site-has-been-compromised)
 - [Exploitable PHP functions](http://stackoverflow.com/questions/3115559/exploitable-php-functions)
 - [Code injection – a simple PHP virus carried in a JPEG image](http://php.webtutor.pl/en/2011/05/13/php-code-injection-a-simple-virus-written-in-php-and-carried-in-a-jpeg-image)
+- [Webshell](https://github.com/tennc/webshell)
 
 TODO
 ---
