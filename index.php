@@ -190,7 +190,7 @@ function autoloadPlugins($sClass) {
  */
 function _stop() {
     global $sLastP, $sLastC, $iCount, $iCheck;
-    _log(sprintf('Malicious stop after %2.4fs. Completed status is %s. Last file (#%d) checked (#%d) : [%s] by %s', (_now() - MCS_START), (MCS_STOP ? 'OK.' : 'KO!'), $iCount, $iCheck, $sLastP, $sLastC));
+    _log(sprintf('Malicious stop after %2.4fs. Completed status is %s. Last file (#%d) checked (#%d) : [%s] by %s', (_now() - MCS_START), (defined('MCS_STOP') ? 'OK.' : 'KO!'), $iCount, $iCheck, $sLastP, $sLastC));
 }
 function _tick() {
     global $sLastP, $sLastC, $iCount, $iCheck;
